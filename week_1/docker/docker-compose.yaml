@@ -1,0 +1,21 @@
+
+
+services:
+  pgdatabase:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB="my_taxi"
+    volumes:
+      - "/Users/arunachalam.a/Documents/data_engineer/data_talk_club/docker/psql:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+
+  pdadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@arun.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "8080:80"
